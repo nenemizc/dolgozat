@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <table>
+        <form>
+            kategória:<select name="category">
+                <option value="játék">játék</option>
+                <option value="könyv">könyv</option>
+                <option value="ruházat">ruházat</option>
+                <option value="elektronika">elektonika</option>
+            </select>
+            <button type="submit">Szűrés</button>
+        </form>
+        <thead>
+            <tr>
+                <th scope="col">Termék neve</th>
+                <th scope="col">Kategória</th>
+                <th scope="col">Ár</th>
+                <th scope="col">Raktárkészlet</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(product => { %>
+            <tr>
+                <td><%=  product.name %></td>
+                <td><%=  product.category %></td>
+                <td><%=  product.price %></td>
+                <td><%=  product.stock %></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>

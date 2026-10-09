@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <form>
+        <label for="nameInput">Név:</label>
+        <input type="text" name="nameInput">
+        <label for="categoryInput">Kategória:</label>
+        <select name="categoryInput">
+            <option value="játék">játék</option>
+            <option value="könyv">könyv</option>
+            <option value="ruházat">ruházat</option>
+            <option value="elektronika">elektonika</option>
+        </select>
+        <label for="priceInput">Ár:</label>
+        <input type="number" name="priceInput">
+        <label for="stockInput">Raktárkészlet:</label>
+        <input type="number" name="stockInput">
+        <button type="submit">Felvétel</button>
+    </form>
+</body>
+</html>

@@ -1,6 +1,8 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Render, Query, Post } from '@nestjs/common';
 import { AppService } from './app.service.js';
 import { Product } from './Product.js';
+import { profile } from 'console';
+import { title } from 'process';
  
 
 @Controller()
@@ -79,5 +81,29 @@ export class AppController {
       products: this.products.sort((a, b) => a.price - b.price),
     }
     
+  }
+
+  @Get('filter')
+  @Render('filter')
+  szures(@Query('category') category:string){
+    const joCategory = category;
+    if (joCategory == ""){
+      return {
+      title: 'filter',
+      products: this.products.sort((a, b) => a.price - b.price),
+    }
+    }
+    return {
+      title: 'filter',
+      products: this.products.filter(item => item.category == joCategory)
+    }
+  }
+
+  @Get('new')
+  @Render('new')
+  ujElem(){
+    return{
+      title:"új termek"
+    }
   }
 }
