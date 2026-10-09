@@ -7,7 +7,7 @@ import { Product } from './Product.js';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  Products: Product[] =[
+  products: Product[] =[
   {
     "name": "Vezeték nélküli egér",
     "category": "elektronika",
@@ -74,6 +74,10 @@ export class AppController {
   @Get()
   @Render('index')
   kiiras(){
+    return {
+      title: 'Termékek',
+      products: this.products.sort((a, b) => a.price - b.price),
+    }
     
   }
 }
