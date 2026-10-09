@@ -1,8 +1,9 @@
-import { Controller, Get, Render, Query, Post } from '@nestjs/common';
+import { Controller, Get, Render, Query, Post, Body, Res } from '@nestjs/common';
 import { AppService } from './app.service.js';
 import { Product } from './Product.js';
 import { profile } from 'console';
 import { title } from 'process';
+import { CreateProductDto } from './CreateProductDto.js';
  
 
 @Controller()
@@ -103,7 +104,23 @@ export class AppController {
   @Render('new')
   ujElem(){
     return{
-      title:"új termek"
+      title:"új termék",
+      success: ""
+    }
+  }
+  @Post('new')
+  @Render('new')
+  newProduct(@Body() body:CreateProductDto){
+    const newProduct:Product ={
+      name: body.name,
+      category: body.category,
+      price: parseInt(body.price),
+      stock: parseInt(body.stock)
+    }
+    this.products.push(newProduct);
+    return{
+      title: "új termék",
+      success: "Sikeres felvétel"
     }
   }
 }

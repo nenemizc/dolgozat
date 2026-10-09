@@ -9,21 +9,24 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <form>
-        <label for="nameInput">Név:</label>
-        <input type="text" name="nameInput">
-        <label for="categoryInput">Kategória:</label>
-        <select name="categoryInput">
+    <a href="./">Fő oldal</a><br>
+    <form action="/new" method="POST">
+        <label for="name">Név:</label>
+        <input type="text" name="name" id="name">
+        <label for="category">Kategória:</label>
+        <select name="category" id="category">
             <option value="játék">játék</option>
             <option value="könyv">könyv</option>
             <option value="ruházat">ruházat</option>
             <option value="elektronika">elektonika</option>
         </select>
-        <label for="priceInput">Ár:</label>
-        <input type="number" name="priceInput">
-        <label for="stockInput">Raktárkészlet:</label>
-        <input type="number" name="stockInput">
+        <label for="price">Ár:</label>
+        <input type="number" name="price" id="price">
+        <label for="stock">Raktárkészlet:</label>
+        <input type="number" name="stock" id="stock">
         <button type="submit">Felvétel</button>
-    </form>
+    </form><br>
+    <p style="color: green;" id="successText"><%= success %></p>
+
 </body>
 </html>
